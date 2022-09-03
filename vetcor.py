@@ -2,7 +2,7 @@
 from transformers import BertTokenizer, BertModel
 from snippets import *
 '''
-这里代码是未测试版，不保证不会出现错误
+代码未经测试，运行可能会有错误
 '''
 model_config="./bert/bert_config.json"
 tokenizer = BertTokenizer.from_pretrained("hfl/chinese-roberta-wwm-ext")
