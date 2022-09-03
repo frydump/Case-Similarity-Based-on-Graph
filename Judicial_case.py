@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
 
 from data_create import *
@@ -7,8 +7,6 @@ from torch_geometric.data import DataLoader
 from sklearn.model_selection import train_test_split
 from dgmc.models import DGMC,GAN
 import argparse
-
-
 
 '''
 图相似度计算模型
