@@ -2,7 +2,9 @@ import numpy as np
 import networkx as nx
 import torch
 import json
-
+'''
+本文件用于存储一些通用的函数
+'''
 data_json = './data/cases_test.json'
 data_save1_vector='./data/cases_fulltext_all_vector'
 data_save2_vector='./data/cases_fulltext_pool_vector'
