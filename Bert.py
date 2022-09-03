@@ -27,7 +27,6 @@ def ctest_bert(data):#无监督bert
 
     return t_num / len(data), recall / recall_num
 
-
 r = ctest_bert(data)
 print(r)
 print(2*(r[0]*r[1])/(r[0]+r[1]))
