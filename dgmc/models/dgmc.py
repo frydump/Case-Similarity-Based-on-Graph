@@ -2,7 +2,7 @@ import os
 
 import torch
 
-os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
 from torch.nn import Sequential as Seq, Linear as Lin, ReLU
 from torch_geometric.utils import to_dense_batch
