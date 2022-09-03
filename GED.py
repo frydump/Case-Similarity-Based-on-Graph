@@ -22,7 +22,6 @@ def get_graph_all_num(data):
 
 
 def get_Ged(data):
-
     recall_num = 0
     recall = 0
     t_num = 0
