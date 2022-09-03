@@ -7,15 +7,13 @@ from sklearn.model_selection import KFold
 from dgmc.models import case_bert
 import argparse
 
-
-
 '''
-本文件代码，删除data的CasesDataset，将1修改为CasesDataset再运行
+注意本文件代码所需的数据格式和论文方法有区别
 '''
 parser = argparse.ArgumentParser()#命令行解析模块
 
 
-parser.add_argument('--lr', type=float, default=0.001)#学习率0.0005，匹配0.92，测试正确率99%？？？
+parser.add_argument('--lr', type=float, default=0.001)
 parser.add_argument('--batch_size', type=int, default=64)
 parser.add_argument('--epochs', type=int, default=55)
 parser.add_argument('--test_samples', type=int, default=2000)
@@ -39,7 +37,7 @@ def train():
 
     total_loss = 0
 
-    for data in train_loader:#训练损失递增，因为两个图神经网络隐藏层数量过多
+    for data in train_loader:
         optimizer.zero_grad()
 
 
@@ -70,7 +68,7 @@ def xtest(dataset):
     recall = 0
     i = 1
     while (num_examples < args.test_samples):#这个是限制总的样例
-        for data in loader:#这里一个data，是一个batch
+        for data in loader:
 
             optimizer.zero_grad()
             data = data.to(device)
@@ -99,7 +97,7 @@ for train_index, test_index in kf.split(data):
     train_set = [data[i] for i in train_index]
     test_set = [data[i] for i in test_index]
 
-    model = case_bert().to(device)  # num_steps共识迭代次数
+    model = case_bert().to(device) 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
     drop_after_epoch = [30, 40]
@@ -109,7 +107,7 @@ for train_index, test_index in kf.split(data):
     train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, follow_batch=['x1','x2','x3','x4'])
 
     one_fold_acc_list,recall_list,F1_list = [],[],[]
-    for epoch in range(1, args.epochs+1):#正确率基本上在0.88左右，大概在50轮会达到预测上限
+    for epoch in range(1, args.epochs+1):
         loss = train()
         scheduler.step()#动态学习率
 
@@ -118,7 +116,7 @@ for train_index, test_index in kf.split(data):
         total_trainable_params = sum(
             p.numel() for p in model.parameters() if p.requires_grad)
         print(f'{total_trainable_params:,} training parameters.')
-        if epoch % 1 == 0 or epoch > 50:#运行过程有几率陷入预测www正确率为1的情况，不知道为什么
+        if epoch % 1 == 0 or epoch > 50:
             accs,t_loss,recall = xtest(test_set)
             F1 = 2 * t_loss * recall / (t_loss + recall)
             one_fold_acc_list.append(t_loss)
