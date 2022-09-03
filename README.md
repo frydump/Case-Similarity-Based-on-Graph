@@ -1,4 +1,4 @@
-<h1 align="center">Deep Graph Matching Consensus</h1>
+<h1 align="center">Case Similarity Algorithm Based on Heterogeneous Property Graph</h1>
 
 
 --------------------------------------------------------------------------------
