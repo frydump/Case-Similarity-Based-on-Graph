@@ -18,7 +18,7 @@ def load_true_case(filename):
             else:
                 t[i] = json.loads(t[i])
     return t
-def true_case_get():
+def true_case_get():#增加标签
     case_triple = load_true_case(addr1)
     case_triple.extend(load_true_case(addr2))
     case_triple.extend(load_true_case(addr3))
