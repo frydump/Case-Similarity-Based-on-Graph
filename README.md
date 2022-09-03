@@ -17,7 +17,6 @@
 ```
 $ python vector.py
 $ python data_create.py
-由于数据处理时间较长，压缩包中已包含一个768条数据的示例
 ```
 
 ##实验代码

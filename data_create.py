@@ -3,7 +3,7 @@ from torch_geometric.data import Data
 from snippets import *
 from true_case_get import true_case_get
 '''
-由于计算GED是np完全问题，这里需要的时间很长
+由于计算GED是np完全问题，这里需要的时间很长很长，建议先使用少量数据尝试
 '''
 
 class CasesDataset(InMemoryDataset):
