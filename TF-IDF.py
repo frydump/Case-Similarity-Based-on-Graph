@@ -30,7 +30,6 @@ def edit_similar(str1,str2):
             taglist[i][j] = min(taglist[i - 1][j - 1] + temp, taglist[i][j - 1] + 1, taglist[i - 1][j] + 1)
     return 1-taglist[len_str1][len_str2] / max(len_str1, len_str2)
 
-
 def cos_sim(str1, str2):
     co_str1 = (Counter(str1))
     co_str2 = (Counter(str2))
