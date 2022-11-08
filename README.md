@@ -6,6 +6,8 @@
 实验数据集来自相似案例匹配数据集，每条数据分为A，B，C三个案例，然后两两比较相似度。将案例数据提取并去重之后，大概可以得到一千多件不同案例，对应一千多个不同的图。
 
 相似案例匹配数据的详细内容可查看[官网网站](http://cail.cipsc.org.cn/)和[官方Github](https://github.com/china-ai-law-challenge/CAIL2019)。
+
+图数据集访问(https://www.scidb.cn/detail?dataSetId=e7bd774c06904f289047264c0c8c5b5a)
 ## Requirements
 
 * **[PyTorch](https://pytorch.org/get-started/locally/)** (>=1.2.0)
